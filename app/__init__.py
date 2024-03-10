@@ -4,6 +4,7 @@ from flask_restful import Api
 from app.common.error_handling import ObjectNotFound, AppErrorBaseClass
 from app.db import db
 from app.petsadopt.api_v1_0.resources import pets_adopt_v1_0_bp
+from app.petsadopt.api_v1_0.scrapper import pets_scrapper_v1_0_bp
 from .ext import ma, migrate
 
 
@@ -24,6 +25,7 @@ def create_app(settings_module):
 
     # Registra los blueprints
     app.register_blueprint(pets_adopt_v1_0_bp)
+    app.register_blueprint(pets_scrapper_v1_0_bp)
 
     # Registra manejadores de errores personalizados
     register_error_handlers(app)
