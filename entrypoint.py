@@ -1,8 +1,8 @@
 import os
 import click
 from app import create_app
-from app.scrappers.cambados import CambadosScrapper
 from app.petsadopt.models import Pet
+from app.scrappers.scrapper_factory import ScrapperFactory
 
 settings_module = os.getenv('APP_SETTINGS_MODULE')
 app = create_app(settings_module)
@@ -11,14 +11,11 @@ app = create_app(settings_module)
 def scrapper():
     print("Scrapper command")
     Pet.delete_all()
-    # config
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/'
-    }
-    # extract from config file in json format
-    url = 'https://refugiocambados.es/adopta/animales-en-adopcion/'
     
-    scrapper = CambadosScrapper(url, headers)
+    url = 'https://refugiocambados.es/adopta/animales-en-adopcion/'
+    name = 'cambados'
+    
+    scrapper = ScrapperFactory.get_scrapper(name, url)
     pets = scrapper.scrap()
     for pet in pets:
         print(pet)
