@@ -20,6 +20,8 @@ class ScrapperResource(Resource):
 api.add_resource(ScrapperResource, '/api/v1.0/scrapper/', endpoint='pet_scrapper')
 
 def get_pets():
+    Pet.delete_all()
+    
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36'
     }
@@ -56,7 +58,7 @@ def get_pets():
             }
             data_pets.append(pet_data)
 
-        # Imprimir los datos de las mascotas (solo para verificar)
+        
         try:
             for pet in data_pets:
                 print(pet)

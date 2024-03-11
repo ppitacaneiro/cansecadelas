@@ -23,3 +23,8 @@ class BaseModelMixin:
     @classmethod
     def simple_filter(cls, **kwargs):
         return cls.query.filter_by(**kwargs).all()
+    
+    @classmethod
+    def delete_all(cls):
+        cls.query.delete()
+        db.session.commit()
