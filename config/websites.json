@@ -1,6 +1,14 @@
 [
     {
         "name": "cambados",
-        "url": "https://refugiocambados.es/adopta/animales-en-adopcion/"
+        "url": "https://refugiocambados.es/adopta/animales-en-adopcion/",
+        "shelter_name": "Refugio Cambados",
+        "shelter_address": "Refugio de Cambados Rua, Refoxos, s/n, 36634 Cambados, Pontevedra",
+        "shelter_phone": "986 52 46 70",
+        "shelter_website": "https://refugiocambados.es/",
+        "shelter_coordinates": {
+            "lat": 42.536383, 
+            "lng": -8.796244
+        }
     }
 ]
