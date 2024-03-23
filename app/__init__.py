@@ -14,7 +14,7 @@ def create_app(settings_module):
     # Inicializa las extensiones
     db.init_app(app)
     ma.init_app(app)
-    migrate.init_app(app, db)
+    migrate.init_app(app, db, render_as_batch=True)
 
     # Captura todos los errores 404
     Api(app, catch_all_404s=True)
