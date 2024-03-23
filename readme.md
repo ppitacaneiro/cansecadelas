@@ -5,5 +5,5 @@ source env/bin/activate
 flask run --debug
 
 # scrapping command
-flask scrapper
+flask scrapper config/websites.json
 
