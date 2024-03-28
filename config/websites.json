@@ -10,5 +10,17 @@
             "lat": 42.536383, 
             "lng": -8.796244
         }
+    },
+    {
+        "name": "osbiosbardos",
+        "url": "https://protectoraosbiosbardos.org/listado.php",
+        "shelter_name": "Asociación Protectora de Animales Os Biosbardos",
+        "shelter_address": "Apartado de Correos 47, 36860 Ponteareas (Pontevedra)",
+        "shelter_phone": "600 356 891",
+        "shelter_website": "https://protectoraosbiosbardos.org/",
+        "shelter_coordinates": {
+            "lat": 42.176106, 
+            "lng": -8.506376
+        }
     }
 ]
