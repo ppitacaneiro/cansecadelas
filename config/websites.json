@@ -22,5 +22,17 @@
             "lat": 42.176106, 
             "lng": -8.506376
         }
+    },
+    {
+        "name": "apadan",
+        "url": "https://apadan.org/adultos/",
+        "shelter_name": "Asociación Protectora APADAN",
+        "shelter_address": "15199 Culleredo, A Coruña",
+        "shelter_phone": "",
+        "shelter_website": "https://apadan.org/",
+        "shelter_coordinates": {
+            "lat": 43.290201, 
+            "lng": -8.388516
+        }
     }
 ]

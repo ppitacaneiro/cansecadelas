@@ -1,5 +1,6 @@
 from app.scrappers.cambados import CambadosScrapper
 from app.scrappers.osbiosbardos import BiosbardosScrapper
+from app.scrappers.apadan import ApadanScrapper
 
 class ScrapperFactory:
     
@@ -13,5 +14,7 @@ class ScrapperFactory:
             return CambadosScrapper(url, headers)
         elif scrapper_name == 'osbiosbardos':
             return BiosbardosScrapper(url, headers)
+        elif scrapper_name == 'apadan':
+            return ApadanScrapper(url, headers) 
         else:
             raise ValueError("Invalid scrapper name")
