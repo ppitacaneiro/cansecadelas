@@ -7,6 +7,7 @@ class PetSchema(ma.Schema):
     image_src = fields.String()
     url_adopt = fields.String()
     sheltter_id = fields.Integer()
+    sheltter = fields.Nested('SheltterSchema')
     
 class SheltterSchema(ma.Schema):
     id = fields.Integer(dump_only=True)
@@ -17,4 +18,3 @@ class SheltterSchema(ma.Schema):
     url = fields.String()
     latitude = fields.Float()
     longitude = fields.Float()
-    pets = fields.Nested('PetSchema', many=True)

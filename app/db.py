@@ -23,6 +23,10 @@ class BaseModelMixin:
     @classmethod
     def get_all(cls):
         return cls.query.all()
+    
+    @classmethod
+    def get_all_paginated(cls, page, per_page):
+        return cls.query.paginate(page=page, per_page=per_page, error_out=False)
 
     @classmethod
     def get_by_id(cls, id):

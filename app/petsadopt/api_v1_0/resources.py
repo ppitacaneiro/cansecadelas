@@ -1,5 +1,6 @@
-from flask import request, Blueprint
+from flask import jsonify, request, Blueprint
 from flask_restful import Api, Resource
+from flask_sqlalchemy import SQLAlchemy
 from app.common.error_handling import ObjectNotFound
 
 from .schemas import PetSchema, SheltterSchema
@@ -13,10 +14,24 @@ sheltter_schema = SheltterSchema()
 api = Api(pets_adopt_v1_0_bp)
 
 class PetListResource(Resource):
+    # ?page=2&per_page=10
     def get(self):
-        pets = Pet.get_all()
-        result = pet_schema.dump(pets, many=True)
-        return result, 200
+        try:
+            page = request.args.get('page', 1, type=int)
+            per_page = request.args.get('per_page', 10, type=int)
+            pagination = Pet.get_all_paginated(page, per_page)
+            result = pet_schema.dump(pagination.items, many=True)
+            return {
+                'items': result,
+                'page': pagination.page,
+                'per_page': pagination.per_page,
+                'total': pagination.total,
+                'pages': pagination.pages
+            }, 200
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
+            return jsonify({'message': 'Internal Server Error'}), 500
     def post(self):
         print("Se ha llamado al método POST de PetListResource")  
         data = request.get_json()
